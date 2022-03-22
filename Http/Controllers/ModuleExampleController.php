@@ -14,6 +14,7 @@ class ModuleExampleController extends Controller
      */
     public function index()
     {
+        $var = "Hello world";
         return view('moduleexample::index');
     }
 
