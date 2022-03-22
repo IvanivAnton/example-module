@@ -23,7 +23,7 @@ class ModuleExampleController extends Controller
      */
     public function create()
     {
-        return view('moduleexample::create');
+        return view('moduleexample::create1');
     }
 
     /**
