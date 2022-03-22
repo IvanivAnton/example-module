@@ -1,10 +1,11 @@
 {
-    "name": "nwidart/moduleexample",
+    "name": "korzinkayablok/example-module",
     "description": "",
+    "type": "laravel-module",
     "authors": [
         {
-            "name": "Nicolas Widart",
-            "email": "n.widart@gmail.com"
+            "name": "Ivaniv Anton",
+            "email": "anton.o.ivaniv@gmail.com"
         }
     ],
     "extra": {
