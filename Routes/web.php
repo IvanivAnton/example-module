@@ -11,6 +11,8 @@
 |
 */
 
+use Illuminate\Support\Facades\Route;
+
 Route::prefix('moduleexample')->group(function() {
     Route::get('/', 'ModuleExampleController@index');
 });
