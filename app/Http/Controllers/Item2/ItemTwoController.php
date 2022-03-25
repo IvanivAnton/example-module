@@ -1,12 +1,13 @@
 <?php
 
-namespace Modules\ModuleExample\Http\Controllers;
+namespace Modules\ModuleExample\app\Http\Controllers\Item2;
 
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use function view;
 
-class ModuleExampleController extends Controller
+class ItemTwoController extends Controller
 {
     /**
      * Display a listing of the resource.

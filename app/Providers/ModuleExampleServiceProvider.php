@@ -1,9 +1,10 @@
 <?php
 
-namespace Modules\ModuleExample\Providers;
+namespace Modules\ModuleExample\app\Providers;
 
-use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Factory;
+use Illuminate\Support\ServiceProvider;
+use Modules\ModuleExample\app\Http\Middleware\ItemActiveMiddlewarre;
 
 class ModuleExampleServiceProvider extends ServiceProvider
 {
@@ -27,7 +28,7 @@ class ModuleExampleServiceProvider extends ServiceProvider
         $this->registerTranslations();
         $this->registerConfig();
         $this->registerViews();
-        $this->loadMigrationsFrom(module_path($this->moduleName, 'Database/Migrations'));
+        $this->loadMigrationsFrom(module_path($this->moduleName, 'database/migrations'));
     }
 
     /**
@@ -38,6 +39,7 @@ class ModuleExampleServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->register(RouteServiceProvider::class);
+        $this->app->make('router')->aliasMiddleware('item', ItemActiveMiddlewarre::class);
     }
 
     /**
@@ -48,10 +50,10 @@ class ModuleExampleServiceProvider extends ServiceProvider
     protected function registerConfig()
     {
         $this->publishes([
-            module_path($this->moduleName, 'Config/config.php') => config_path($this->moduleNameLower . '.php'),
+            module_path($this->moduleName, 'config/config.php') => config_path($this->moduleNameLower . '.php'),
         ], 'config');
         $this->mergeConfigFrom(
-            module_path($this->moduleName, 'Config/config.php'), $this->moduleNameLower
+            module_path($this->moduleName, 'config/config.php'), $this->moduleNameLower
         );
     }
 
@@ -64,7 +66,7 @@ class ModuleExampleServiceProvider extends ServiceProvider
     {
         $viewPath = resource_path('views/modules/' . $this->moduleNameLower);
 
-        $sourcePath = module_path($this->moduleName, 'Resources/views');
+        $sourcePath = module_path($this->moduleName, 'resources/views');
 
         $this->publishes([
             $sourcePath => $viewPath
@@ -85,7 +87,7 @@ class ModuleExampleServiceProvider extends ServiceProvider
         if (is_dir($langPath)) {
             $this->loadTranslationsFrom($langPath, $this->moduleNameLower);
         } else {
-            $this->loadTranslationsFrom(module_path($this->moduleName, 'Resources/lang'), $this->moduleNameLower);
+            $this->loadTranslationsFrom(module_path($this->moduleName, 'resources/lang'), $this->moduleNameLower);
         }
     }
 

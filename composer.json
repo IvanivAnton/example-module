@@ -18,7 +18,8 @@
     },
     "autoload": {
         "psr-4": {
-            "Modules\\ModuleExample\\": ""
+            "Modules\\ModuleExample\\": "",
+            "App" : "app"
         }
     }
 }

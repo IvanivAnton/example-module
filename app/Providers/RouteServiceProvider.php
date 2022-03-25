@@ -1,9 +1,10 @@
 <?php
 
-namespace Modules\ModuleExample\Providers;
+namespace Modules\ModuleExample\app\Providers;
 
-use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\Route;
+use function module_path;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -49,7 +50,7 @@ class RouteServiceProvider extends ServiceProvider
     {
         Route::middleware('web')
             ->namespace($this->moduleNamespace)
-            ->group(module_path('ModuleExample', '/Routes/web.php'));
+            ->group(module_path('ModuleExample', '/routes/web.php'));
     }
 
     /**
@@ -64,6 +65,6 @@ class RouteServiceProvider extends ServiceProvider
         Route::prefix('api')
             ->middleware('api')
             ->namespace($this->moduleNamespace)
-            ->group(module_path('ModuleExample', '/Routes/api.php'));
+            ->group(module_path('ModuleExample', '/routes/api.php'));
     }
 }
