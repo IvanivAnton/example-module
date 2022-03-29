@@ -1,11 +1,10 @@
 <?php
 
-namespace Modules\ModuleExample\app\Http\Controllers\Item2;
+namespace ModuleExampleApp\Http\Controllers\Item2;
 
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use function view;
 
 class ItemTwoController extends Controller
 {
